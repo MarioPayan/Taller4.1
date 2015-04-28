@@ -67,7 +67,7 @@ public class Empleado implements Serializable {
         this.empleadoId = empleadoId;
     }
 
-    public Empleado(String empleadoId, String cedula, String nombre, String direccion, String telefono, String cargo, String correo) {
+    public Empleado(String empleadoId, String cedula, String nombre, String direccion, String telefono, String cargo, String correo, float salario) {
         this.empleadoId = empleadoId;
         this.cedula = cedula;
         this.nombre = nombre;
@@ -75,6 +75,7 @@ public class Empleado implements Serializable {
         this.telefono = telefono;
         this.cargo = cargo;
         this.correo = correo;
+        this.salario = salario;
     }
 
     public String getCedula() {

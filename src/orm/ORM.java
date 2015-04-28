@@ -5,6 +5,9 @@
  */
 package orm;
 
+import Vista.VentanaPrincipal;
+import java.util.Locale;
+
 /**
  *
  * @author marioapv
@@ -15,7 +18,11 @@ public class ORM {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        VentanaPrincipal vent = new VentanaPrincipal();
+        vent.setVisible(true);
+        vent.setDefaultCloseOperation(VentanaPrincipal.EXIT_ON_CLOSE);
+        vent.setLocation(350, 250);
     }
     
 }

@@ -5,6 +5,9 @@
  */
 package Vista;
 
+import controlador.controladorEmpleado;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import logica.Empleado;
 
@@ -61,6 +64,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         lbEmpleadoId.setText("Empleado ID:");
 
         btEliminar.setText("Eliminiar");
+        btEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btEliminarMouseClicked(evt);
+            }
+        });
 
         lbNombre.setText("Nombre:");
 
@@ -81,6 +89,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         lbTelefono.setText("Telefono:");
 
         btActualizar.setText("Actualizar");
+        btActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btActualizarMouseClicked(evt);
+            }
+        });
 
         btIngresar.setText("Ingresar");
         btIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -227,7 +240,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
        
       if(validarCampos() == 0){
       
-          JOptionPane.showMessageDialog(null, "Se ingresara ");
+          controladorEmpleado contEmple = new controladorEmpleado();
+          try {
+          
+              contEmple.agregarEmpleado(cpEmpleadod.getText(), cpNombre.getText(), cpCedula.getText(),
+                                        cpCorreo.getText(), cpCargo.getText(), Float.parseFloat(cpSalario.getText()),
+                                        cpDireccion.getText(), cpTelefono.getText());
+        
+          
+          } catch (Exception ex) {
+              Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+          }
+          
+          
       
       }else{
           
@@ -246,7 +271,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }else{
     
             //Aqui debe retornar un objeto de tipo empleado a partir de la busqueda
-            Empleado emple = null;
+            controladorEmpleado contro = new controladorEmpleado();
+            
+            Empleado emple = new Empleado();
+            
+            emple = contro.buscarEmpleado(cpBuscarId.getText());
             
             //Se agregan los datos del empleado a la intefaz grafica boqueando la edicion del ID
             
@@ -264,6 +293,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         
         }
     }//GEN-LAST:event_btBuscarMouseClicked
+
+    private void btEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEliminarMouseClicked
+        
+        
+    }//GEN-LAST:event_btEliminarMouseClicked
+
+    private void btActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btActualizarMouseClicked
+        
+        Empleado emple = null;
+        
+        emple.setCargo(cpCargo.getText());
+        emple.setCargo(cpCargo.getText());
+        emple.setCargo(cpCargo.getText());
+        emple.setCargo(cpCargo.getText());
+        emple.setCargo(cpCargo.getText());
+        emple.setCargo(cpCargo.getText());
+        emple.setCargo(cpCargo.getText());
+                
+    }//GEN-LAST:event_btActualizarMouseClicked
 
     /**
      * @param args the command line arguments
