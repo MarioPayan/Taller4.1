@@ -248,8 +248,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                                         cpDireccion.getText(), cpTelefono.getText());
         
           
+              JOptionPane.showMessageDialog(null, "Se ingreso correctamente el usuario");
+              
+              cpEmpleadod.setText(""); 
+              cpNombre.setText("");
+              cpCedula.setText("");
+              cpCorreo.setText("");
+              cpCargo.setText("");
+              cpSalario.setText("");
+              cpDireccion.setText("");
+              cpTelefono.setText("");
+              
+              
           } catch (Exception ex) {
-              Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+              
+              JOptionPane.showMessageDialog(null, "Error al ingresar el usuario, puede que el id ya exista");
+              
           }
           
           
@@ -273,12 +287,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             //Aqui debe retornar un objeto de tipo empleado a partir de la busqueda
             controladorEmpleado contro = new controladorEmpleado();
             
-            Empleado emple = new Empleado();
+            Empleado emple = null;
             
             emple = contro.buscarEmpleado(cpBuscarId.getText());
             
-            //Se agregan los datos del empleado a la intefaz grafica boqueando la edicion del ID
+            cpBuscarId.setText("");
             
+            //Se agregan los datos del empleado a la intefaz grafica boqueando la edicion del ID
+            if(emple != null){
             cpEmpleadod.setEditable(false);
             cpEmpleadod.setText(emple.getEmpleadoId());
             
@@ -289,27 +305,75 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             cpNombre.setText(emple.getNombre());
             cpSalario.setText(emple.getSalario().toString());
             cpTelefono.setText(emple.getTelefono());
+            }else{
             
+                JOptionPane.showMessageDialog(null, "Ningun resultado");
+            
+            }
         
         }
     }//GEN-LAST:event_btBuscarMouseClicked
 
     private void btEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEliminarMouseClicked
         
+        controladorEmpleado contro = new controladorEmpleado();
         
+        try {
+       
+            contro.eliminarEmpleado(cpEmpleadod.getText());
+            JOptionPane.showMessageDialog(null, "se elimino correctamente");
+            cpEmpleadod.setText(""); 
+              cpNombre.setText("");
+              cpCedula.setText("");
+              cpCorreo.setText("");
+              cpCargo.setText("");
+              cpSalario.setText("");
+              cpDireccion.setText("");
+              cpTelefono.setText("");
+              cpEmpleadod.setEditable(true);
+        
+        } catch (Exception ex) {
+            
+            JOptionPane.showMessageDialog(null, "No se pudo encontrar el registro");
+        }
     }//GEN-LAST:event_btEliminarMouseClicked
 
     private void btActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btActualizarMouseClicked
         
-        Empleado emple = null;
+        Empleado emple = new Empleado();
         
         emple.setCargo(cpCargo.getText());
-        emple.setCargo(cpCargo.getText());
-        emple.setCargo(cpCargo.getText());
-        emple.setCargo(cpCargo.getText());
-        emple.setCargo(cpCargo.getText());
-        emple.setCargo(cpCargo.getText());
-        emple.setCargo(cpCargo.getText());
+        emple.setCedula(cpCedula.getText());
+        emple.setCorreo(cpCorreo.getText());
+        emple.setDireccion(cpDireccion.getText());
+        emple.setEmpleadoId(cpEmpleadod.getText());
+        emple.setNombre(cpNombre.getText());
+        emple.setSalario(Float.parseFloat(cpSalario.getText()));
+        emple.setTelefono(cpTelefono.getText());
+        
+        controladorEmpleado contro = new controladorEmpleado();
+        
+        try {
+        
+            
+            if(emple == null) System.err.println("es  nulo");
+            contro.actualizarEmpleado(emple);
+            JOptionPane.showMessageDialog(null, "Actualizacion correcta");
+            cpEmpleadod.setText(""); 
+              cpNombre.setText("");
+              cpCedula.setText("");
+              cpCorreo.setText("");
+              cpCargo.setText("");
+              cpSalario.setText("");
+              cpDireccion.setText("");
+              cpTelefono.setText("");
+              cpEmpleadod.setEditable(true);
+                
+        } catch (Exception ex) {
+        
+            JOptionPane.showMessageDialog(null, "No se pudo encontrar el registro");
+        
+        }
                 
     }//GEN-LAST:event_btActualizarMouseClicked
 

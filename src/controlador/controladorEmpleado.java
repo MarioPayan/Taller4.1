@@ -31,12 +31,10 @@ public class controladorEmpleado {
         empContro.create(emp);
     }
 
-    public void actualizarEmpleado(String empId, String nombre, String cedula, String correo, String cargo,
-                                float salario, String direccion, String telefono) throws Exception{
+    public void actualizarEmpleado(Empleado emp) throws Exception{
     
-        Empleado emp = new Empleado(empId, cedula, nombre, direccion, telefono, cargo, correo, salario);
-        
-        empContro.create(emp);
+        empContro.edit(emp);
+    
     }
     
     public void eliminarEmpleado(String empId) throws Exception{

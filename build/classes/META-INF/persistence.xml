@@ -5,10 +5,10 @@
     <class>logica.Empleado</class>
     <class>logica.Persona</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/kazemu"/>
-      <property name="javax.persistence.jdbc.user" value="kazemu"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/taller4"/>
+      <property name="javax.persistence.jdbc.user" value="juliancv"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="kazemu"/>
+      <property name="javax.persistence.jdbc.password" value="juliancv"/>
     </properties>
   </persistence-unit>
 </persistence>
