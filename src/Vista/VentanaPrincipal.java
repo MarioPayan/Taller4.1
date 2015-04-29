@@ -56,6 +56,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         cpSalario = new javax.swing.JTextField();
         cpTelefono = new javax.swing.JTextField();
         cpDireccion = new javax.swing.JTextField();
+        btNuevo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,6 +110,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btNuevo.setText("Nuevo");
+        btNuevo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btNuevoMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);
         panelPrincipalLayout.setHorizontalGroup(
@@ -157,7 +165,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                                 .addComponent(btActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(cpBuscarId, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(btBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))))
                 .addGap(43, 43, 43))
         );
         panelPrincipalLayout.setVerticalGroup(
@@ -196,7 +206,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btEliminar)
                     .addComponent(btIngresar)
-                    .addComponent(btActualizar))
+                    .addComponent(btActualizar)
+                    .addComponent(btNuevo))
                 .addGap(37, 37, 37))
         );
 
@@ -204,7 +215,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -377,6 +388,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 
     }//GEN-LAST:event_btActualizarMouseClicked
 
+    private void btNuevoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btNuevoMouseClicked
+              
+              cpEmpleadod.setText(""); 
+              cpNombre.setText("");
+              cpCedula.setText("");
+              cpCorreo.setText("");
+              cpCargo.setText("");
+              cpSalario.setText("");
+              cpDireccion.setText("");
+              cpTelefono.setText("");
+              cpEmpleadod.setEditable(true);
+    }//GEN-LAST:event_btNuevoMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -417,6 +441,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btBuscar;
     private javax.swing.JButton btEliminar;
     private javax.swing.JButton btIngresar;
+    private javax.swing.JButton btNuevo;
     private javax.swing.JTextField cpBuscarId;
     private javax.swing.JTextField cpCargo;
     private javax.swing.JTextField cpCedula;
