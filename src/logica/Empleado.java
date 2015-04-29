@@ -17,10 +17,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author marioapv
+ * @author kazemu
  */
 @Entity
-@Table(catalog = "marioapv", schema = "public")
+@Table(catalog = "kazemu", schema = "public")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e"),
@@ -164,7 +164,7 @@ public class Empleado implements Serializable {
 
     @Override
     public String toString() {
-        return "orm.Logica.Empleado[ empleadoId=" + empleadoId + " ]";
+        return "Vista.Empleado[ empleadoId=" + empleadoId + " ]";
     }
     
 }

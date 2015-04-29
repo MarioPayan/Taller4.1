@@ -19,7 +19,7 @@ import logica.Persona;
 
 /**
  *
- * @author marioapv
+ * @author kazemu
  */
 public class PersonaJpaController implements Serializable {
 

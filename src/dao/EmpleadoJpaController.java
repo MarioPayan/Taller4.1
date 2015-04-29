@@ -19,17 +19,13 @@ import logica.Empleado;
 
 /**
  *
- * @author marioapv
+ * @author kazemu
  */
 public class EmpleadoJpaController implements Serializable {
 
     public EmpleadoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    
-    public EmpleadoJpaController(){}
-    
-    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {

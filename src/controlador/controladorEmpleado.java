@@ -7,6 +7,7 @@ package controlador;
 
 import dao.EmpleadoJpaController;
 import logica.Empleado;
+import dao.Conexion;
 
 /**
  *
@@ -14,18 +15,19 @@ import logica.Empleado;
  */
 public class controladorEmpleado {
    
-    EmpleadoJpaController empContro;
+    private EmpleadoJpaController empContro;
+    private Conexion conn;
 
     public controladorEmpleado() {
-    
-        empContro = new EmpleadoJpaController();
+        conn = new Conexion();
+        empContro = new EmpleadoJpaController(conn.getConx());
     }
     
     public void agregarEmpleado(String empId, String nombre, String cedula, String correo, String cargo,
                                 float salario, String direccion, String telefono) throws Exception{
     
         Empleado emp = new Empleado(empId, cedula, nombre, direccion, telefono, cargo, correo, salario);
-        
+
         empContro.create(emp);
     }
 

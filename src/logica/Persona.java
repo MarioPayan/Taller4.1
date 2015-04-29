@@ -17,10 +17,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author marioapv
+ * @author kazemu
  */
 @Entity
-@Table(catalog = "marioapv", schema = "public")
+@Table(catalog = "kazemu", schema = "public")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Persona.findAll", query = "SELECT p FROM Persona p"),
@@ -112,7 +112,7 @@ public class Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "orm.Logica.Persona[ cedula=" + cedula + " ]";
+        return "Vista.Persona[ cedula=" + cedula + " ]";
     }
     
 }
